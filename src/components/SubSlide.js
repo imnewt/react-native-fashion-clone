@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         textTransform: "capitalize",
         fontSize: 24,
         lineHeight: 30,
+        marginTop: 24,
         marginBottom: 12,
         color: "#0C0D34"
     },
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         color: "#0C0D34",
         textAlign: "center",
-        marginBottom: 40
+        marginBottom: 36
     }
 })
 
