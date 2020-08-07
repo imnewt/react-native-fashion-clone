@@ -1,14 +1,13 @@
 import React, { useRef } from "react";
 import { View, ScrollView, Text, Dimensions, StyleSheet } from "react-native";
 
-import Slide, { SLIDER_HEIGHT } from "../components/Slide";
+import Slide, { SLIDER_HEIGHT, BORDER_RADIUS } from "../components/Slide";
 import SubSlide from "../components/SubSlide";
 import Dot from "../components/Dot";
 import { interpolateColors, multiply, divide } from "react-native-reanimated";
 import { useValue, onScrollEvent, useScrollHandler } from "react-native-redash";
 import Animated from "react-native-reanimated"
 
-const BORDER_RADIUS = 75;
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
     container: {
@@ -42,23 +41,29 @@ const slides = [
         title: "relaxed",
         subtitle: "find your outfits",
         description: "Confused about your outfit? Don't worry! Find the best outfit here!",
-        color: "#BFEAF5"
+        color: "#BFEAF5",
+        picture: require("../../assets/images/1.png")
     },
     { 
         title: "playful",
         subtitle: "hear it first, wear it first",
         description: "Hating the clothes in your wardobe? Explore hundreds of outfit ideas",
-        color: "#BEECC4" },
+        color: "#BEECC4",
+        picture: require("../../assets/images/1.png") 
+    },
     { 
         title: "excentric",
         subtitle: "your style, your way",
         description: "Create your invidual & unique style and look amazing everyday",
-        color: "#FFE4D9" },
+        color: "#FFE4D9",
+        picture: require("../../assets/images/1.png") 
+    },
     { 
         title: "funky",
         subtitle: "look good, feel good",
         description: "Discover the latest trends in fashion and explore your personality",
-        color: "#FFDDDD" 
+        color: "#FFDDDD",
+        picture: require("../../assets/images/1.png")
     }
 ]
 
@@ -81,8 +86,8 @@ const Onboarding = () => {
                     bounces={false}
                     {...scrollHandler}
                 >
-                    { slides.map(({ title }, index) => (
-                        <Slide key={index} right={(index % 2)} {...{title}} />
+                    { slides.map(({ title, picture }, index) => (
+                        <Slide key={index} right={(index % 2)} {...{ title, picture }} />
                     ))}
                 </Animated.ScrollView>
             </Animated.View>
